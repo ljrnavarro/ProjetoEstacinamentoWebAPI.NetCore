@@ -1,0 +1,69 @@
+﻿@model IEnumerable<WebAplicacaoEstaciona.Models.ListaEstacionamentoCompletoRelatorio>
+
+@{
+    ViewBag.Title = "Index";
+    Decimal valortotal = (Decimal)Model.Select(l => Convert.ToDecimal(l.valorPago)).Sum();
+}
+
+<h2>Relatório Gerencial</h2>
+
+<div>
+    <table class="table table-bordered">
+        <tr>
+            <th>
+                @Html.DisplayName("Vaga Ocupada")
+            </th>
+            <th>
+                @Html.DisplayName("Veiculo Modelo")
+            </th>
+            <th>
+                @Html.DisplayName("Veiculo Placa")
+            </th>
+            <th>
+                @Html.DisplayName("Entrada")
+            </th>
+            <th>
+                @Html.DisplayName("Saída")
+            </th>
+            <th>
+                @Html.DisplayName("Valor Pago")
+            </th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.vaga)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.modelo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.placa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.entrada)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.saida)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.valorPago)
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+<div>
+    <div class="form-group">
+        @Html.Label("Valor Total no Período", null, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.Label("Valor Total no Período", "R$" + valortotal, new { @class = "control-label col-md-2" })
+        </div>
+    </div>
+</div>
+<div id="modal" class="modal">
+</div>
+

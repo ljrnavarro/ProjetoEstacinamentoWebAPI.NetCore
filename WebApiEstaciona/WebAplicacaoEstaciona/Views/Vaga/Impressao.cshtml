@@ -1,0 +1,54 @@
+﻿@model IEnumerable<WebAplicacaoEstaciona.Models.VagasCompleto>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Vagas Ocupadas</h2>
+<div>
+    <table class="table table-bordered">
+        <tr>
+            <th>
+                @Html.DisplayName("Vaga")
+            </th>
+            <th>
+                @Html.DisplayName("Registro no Estacionamento")
+            </th>
+            <th>
+                @Html.DisplayName("Veiculo Modelo")
+            </th>
+            <th>
+                @Html.DisplayName("Veiculo Placa")
+            </th>
+            <th>
+                @Html.DisplayName("Entrada")
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.vaga)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.idEstacionamento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.modelo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.placa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.entrada)
+            </td>
+        </tr>
+        }
+    </table>
+</div>
+<div id="modal" class="modal">
+</div>
+
+

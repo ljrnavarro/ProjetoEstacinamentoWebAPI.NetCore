@@ -1,0 +1,69 @@
+﻿@model IEnumerable<WebAplicacaoEstaciona.Models.VagasCompleto>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Vagas Ocupadas</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.Raw(TempData["msg"])
+}
+
+<div>
+    <table class="table table-bordered">
+        <tr>
+            <th>
+                @Html.DisplayName("Vaga")
+            </th>
+            <th>
+                @Html.DisplayName("Registro no Estacionamento")
+            </th>
+            <th>
+                @Html.DisplayName("Veiculo Modelo")
+            </th>
+            <th>
+                @Html.DisplayName("Veiculo Placa")
+            </th>
+            <th>
+                @Html.DisplayName("Entrada")
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.vaga)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idEstacionamento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.modelo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.placa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.entrada)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Pagar", "estacionamento", new { id = item.idEstacionamento })'">Pagar Estacionamento</button>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+<div id="modal" class="modal">
+</div>
+<div class="col-md-12">
+<div>
+    <p>
+        <button type="button" class="btn btn-warning" onclick="window.open('@Url.Action("Impressao", "vaga")')">Documento (PDF)</button>
+    </p>
+</div>
+</div>

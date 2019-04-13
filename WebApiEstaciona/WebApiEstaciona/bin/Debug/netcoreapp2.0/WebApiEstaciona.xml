@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebApiEstaciona</name>
+    </assembly>
+    <members>
+        <member name="T:WebApiEstaciona.Controllers.EstacionamentoController">
+            <summary>
+            Classe principal da aplicação responsável por manter os veícuos e suas vagas
+            </summary>
+        </member>
+        <member name="M:WebApiEstaciona.Controllers.EstacionamentoController.#ctor(Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            Ininicializador
+            </summary>
+            <param name="contexto"></param>
+        </member>
+        <member name="M:WebApiEstaciona.Controllers.EstacionamentoController.Novo(WebApiEstaciona.Models.EstacionamentoModel)">
+            <summary>
+            Serviço responsável por registrar a Vaga sendo passado no Body o modelo Estacionamento
+            </summary>
+            <param name="dados"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiEstaciona.Controllers.EstacionamentoController.Pagar(System.Int32)">
+            <summary>
+            Serviço responsável por efetuar o pagamento, após isso a vaga no estacionamento é Finalizada e é gerado um Tiket de Pagamento
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiEstaciona.Controllers.EstacionamentoController.Gerencial(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Serviço responsável por Emitir uum relatório completo + financeiro do Estacionamento
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiEstaciona.Controllers.EstacionamentoController.Estacionamentos">
+            <summary>
+            Obtem uma lista completa do meu estacionamento
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiEstaciona.Controllers.VagaController.Ocupadas">
+            <summary>
+            Obtem lista de vagas que estão usadas no estacionamento (posição das vagas)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiEstaciona.Controllers.VagaController.Disponiveis">
+            <summary>
+            Obtem lista de vagas que estão disponíveis
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiEstaciona.Controllers.VagaController.QuantVagasDisponiveis">
+            <summary>
+            Obtem a quantidade de vagas disponíveis
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiEstaciona.Controllers.VeiculoController.Veiculos">
+            <summary>
+            Lista todos os veículos
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiEstaciona.Controllers.VeiculoController.Get(System.Int32)">
+            <summary>
+            Captura dados de um veículo específico
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiEstaciona.Controllers.VeiculoController.Novo(WebApiEstaciona.Models.VeiculoModel)">
+            <summary>
+            Cadastra um veículo
+            </summary>
+            <param name="dados"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiEstaciona.DAL.MetodosAcessoDAL.ExecutarComandoSQL(MySql.Data.MySqlClient.MySqlConnection,System.String)">
+            <summary>
+            Comandos DELETE, INSERT e UPDATE
+            </summary>
+            <param name="connection"></param>
+            <param name="SQL"></param>
+        </member>
+        <member name="M:WebApiEstaciona.DAL.MetodosAcessoDAL.RetornaDataTable(MySql.Data.MySqlClient.MySqlConnection,System.String)">
+            <summary>
+            Retorna datatable
+            </summary>
+            <param name="connection"></param>
+            <param name="SQL"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiEstaciona.DAL.MetodosAcessoDAL.ReturnValue(MySql.Data.MySqlClient.MySqlConnection,System.String)">
+            <summary>
+            Execute escalar
+            </summary>
+            <param name="connection"></param>
+            <param name="SQL"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiEstaciona.Models.EstacionamentoModel.InicializarEstacionamento(System.Int32)">
+            <summary>
+            Inicializa um novo estacinamento
+            </summary>
+            <param name="qntVagas"></param>
+        </member>
+        <member name="M:WebApiEstaciona.Models.EstacionamentoModel.ObtemEstacionamentos">
+            <summary>
+            Obtem a lista de todos os estacionamentos
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiEstaciona.Models.EstacionamentoModel.RegistrarVagaEstacionamento">
+            <summary>
+            Registra Vaga, caso esteja disponível
+            </summary>
+        </member>
+        <member name="M:WebApiEstaciona.Models.EstacionamentoModel.ListaVagasOcupadas">
+            <summary>
+            Lista as vagas ocupadas com as informações do veículo
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiEstaciona.Models.EstacionamentoModel.RegistrarPagamento(System.Int32)">
+            <summary>
+            Registra o pagament baseado no id do Estacionamento
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:WebApiEstaciona.Models.EstacionamentoModel.ObtemRelatorioCompletoLista(System.DateTime,System.DateTime)">
+            <summary>
+            ObtemRelatorioCompleto, com dados do estacionamento, pagamentos, veículos e etc.
+            baseado em datas de entrada
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:WebApiEstaciona.Models.VagaModel.ListaVagasDisponíveis">
+            <summary>
+            Registra Vaga, caso esteja disponível
+            </summary>
+        </member>
+        <member name="M:WebApiEstaciona.Models.VagaModel.ListaVagasOcupadas">
+            <summary>
+            Lista as Vagas Ocupadas
+            </summary>
+        </member>
+        <member name="M:WebApiEstaciona.Models.VeiculoModel.RegistrarVeiculo">
+            <summary>
+            Registra o veículo
+            </summary>
+        </member>
+        <member name="M:WebApiEstaciona.Models.VeiculoModel.ListaVeiculos">
+            <summary>
+            Lista os veículos cadastrados
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "Relatório Geral";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string message = (string)@TempData["Message"];
+}
+<h2>Relatório Geral</h2>
+@if (!string.IsNullOrEmpty(message))
+{
+    @Html.Raw($"<script>alert('{message}');</script>")
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <section class="container form-horizontal well">
+        <fieldset>
+            <legend>Dados:</legend>
+            @Html.ValidationSummary(true)
+
+            <div class="form-group">
+                @Html.Label("DataIní", "Data Início", new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBox("DataInicial")
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("DataFim", "Data Final", new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBox("DataFinal")
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div>
+                    <p>
+                        <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Index", "Home")'">Sair</button>
+                        <input type="submit" value="Exibir" class="btn btn-success" />
+                    </p>
+                </div>
+            </div>
+
+
+        </fieldset>
+    </section>
+}
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $('#DataInicial').mask('AA/SS/YYYY', {
+                'translation': {
+                    A: { pattern: /[0-9]/ },
+                    S: { pattern: /[0-9]/ },
+                    Y: { pattern: /[0-9]/ }
+                }
+            });
+            $('#DataFinal').mask('AA/SS/YYYY', {
+                'translation': {
+                    A: { pattern: /[0-9]/ },
+                    S: { pattern: /[0-9]/ },
+                    Y: { pattern: /[0-9]/ }
+                }
+            });
+        });
+    </script>
+}

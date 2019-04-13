@@ -1,0 +1,64 @@
+﻿@model WebAplicacaoEstaciona.Models.Estacionamento
+
+@{
+    ViewBag.Title = "Pagar Estacionamento";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int idVeiculo = ViewBag.IdVeiculo;
+    Decimal ValoraPagar = (Decimal)ViewBag.ValoraPagar;
+}
+<h2>Pagar Estacionamento</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <section class="container form-horizontal well">
+        <fieldset>
+            <legend>Dados:</legend>
+            @Html.ValidationSummary(true)
+
+            <div class="form-group">
+                @Html.Label("Entrada", null, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.DataHora_Entrada, new { @readonly = "readonly" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Saída", null, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.DataHora_Saida, new { @Value = DateTime.Now.ToString(), @readonly = "readonly" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Valor a Pagar", null, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBox("ValorPagar",ValoraPagar, new {@readonly = "readonly" })
+                </div>
+            </div>
+
+            @Html.HiddenFor(model => model.IdVeiculo, new { @Value = idVeiculo })
+            @Html.HiddenFor(model => model.Estado, new { @Value = "P" })
+
+            <div class="col-md-12">
+                <div>
+                    <p>
+                        <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Index", "VagasCompleto")'">Voltar</button>
+                        <input type="submit" value="Confirmar" class="btn btn-success" />
+                    </p>
+                </div>
+            </div>
+
+
+        </fieldset>
+    </section>
+}
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $('#ValorPagar').mask('R$999,99');
+        });
+    </script>
+}

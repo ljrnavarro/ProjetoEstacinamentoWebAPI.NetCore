@@ -1,0 +1,55 @@
+﻿@model IEnumerable<WebAplicacaoEstaciona.Models.Veiculo>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string message = (string)@TempData["Message"];
+}
+
+<h2>Cadastro de Veículos</h2>
+
+@using (Html.BeginForm())
+{
+
+}
+
+@if (!string.IsNullOrEmpty(message))
+{
+    @Html.Raw($"<script>alert('{message}');</script>")
+}
+
+<p>
+    <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Novo", "veiculo")'">Cadastrar</button>
+</p>
+
+<div>
+    <table class="table table-bordered">
+        <tr>
+            <th>
+                @Html.DisplayName("Modelo")
+            </th>
+            <th>
+                @Html.DisplayName("Placa")
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Modelo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Placa)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Estacionar", "estacionamento", new { id = item.Id })'">Estacionar</button>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+<div id="modal" class="modal">
+</div>
+

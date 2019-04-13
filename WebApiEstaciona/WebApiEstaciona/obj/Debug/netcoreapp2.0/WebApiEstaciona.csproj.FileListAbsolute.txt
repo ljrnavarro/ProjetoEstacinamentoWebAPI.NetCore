@@ -1,0 +1,12 @@
+C:\Users\NOT\source\repos\WebApiEstaciona\WebApiEstaciona\bin\Debug\netcoreapp2.0\WebApiEstaciona.deps.json
+C:\Users\NOT\source\repos\WebApiEstaciona\WebApiEstaciona\bin\Debug\netcoreapp2.0\WebApiEstaciona.runtimeconfig.json
+C:\Users\NOT\source\repos\WebApiEstaciona\WebApiEstaciona\bin\Debug\netcoreapp2.0\WebApiEstaciona.runtimeconfig.dev.json
+C:\Users\NOT\source\repos\WebApiEstaciona\WebApiEstaciona\bin\Debug\netcoreapp2.0\WebApiEstaciona.dll
+C:\Users\NOT\source\repos\WebApiEstaciona\WebApiEstaciona\bin\Debug\netcoreapp2.0\WebApiEstaciona.pdb
+C:\Users\NOT\source\repos\WebApiEstaciona\WebApiEstaciona\bin\Debug\netcoreapp2.0\WebApiEstaciona.xml
+C:\Users\NOT\source\repos\WebApiEstaciona\WebApiEstaciona\obj\Debug\netcoreapp2.0\WebApiEstaciona.csproj.CoreCompileInputs.cache
+C:\Users\NOT\source\repos\WebApiEstaciona\WebApiEstaciona\obj\Debug\netcoreapp2.0\WebApiEstaciona.AssemblyInfoInputs.cache
+C:\Users\NOT\source\repos\WebApiEstaciona\WebApiEstaciona\obj\Debug\netcoreapp2.0\WebApiEstaciona.AssemblyInfo.cs
+C:\Users\NOT\source\repos\WebApiEstaciona\WebApiEstaciona\obj\Debug\netcoreapp2.0\WebApiEstaciona.dll
+C:\Users\NOT\source\repos\WebApiEstaciona\WebApiEstaciona\obj\Debug\netcoreapp2.0\WebApiEstaciona.pdb
+C:\Users\NOT\source\repos\WebApiEstaciona\WebApiEstaciona\obj\Debug\netcoreapp2.0\WebApiEstaciona.csprojAssemblyReference.cache
